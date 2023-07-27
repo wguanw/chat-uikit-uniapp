@@ -1,27 +1,5 @@
 <template>
-  <Dialog
-    :visible="showDialog"
-    :styleConfig="styleConfig"
-    :handleClose="handleClose"
-  >
-    <view
-      v-for="(item, index) in chatList"
-      :key="index"
-      class="chat-container"
-      @click.stop="handleContentClick(item)"
-    >
-      <image
-        class="item-icon"
-        v-if="item.imgType === 'SINGLE'"
-        src="../../../assets/icon/singlePerson.svg"
-      />
-      <image class="item-icon" v-else src="../../../assets/icon/multiPerson.svg" />
-      <view>{{ item.content }}</view>
-    </view>
-  </Dialog>
-
   <view class="TUI-conversation">
-    <view class="create-group" @click="handleShow"> + 发起聊天</view>
     <TUIConversationList
       :currentID="currrentConversationID"
       :conversationList="conversationList"
@@ -129,10 +107,6 @@ const TUIConversation = defineComponent({
       });
     };
 
-    const handleShow = () => {
-      data.showDialog = true;
-    };
-
     // dialog 内部有效区域点击
     const handleContentClick = (item) => {
       data.showDialog = false;
@@ -166,7 +140,6 @@ const TUIConversation = defineComponent({
       handleContentClick,
       handleItemName,
       handleClose,
-      handleShow,
     };
   },
 });
