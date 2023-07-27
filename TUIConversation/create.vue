@@ -27,7 +27,7 @@
           <image
             class="tui-normal-choose"
             v-if="item.isChoose"
-            src="../../assets/icon/selected.svg"
+            src="../../../assets/icon/selected.svg"
           ></image>
           <view class="tui-normal-unchoose" v-else></view>
         </view>

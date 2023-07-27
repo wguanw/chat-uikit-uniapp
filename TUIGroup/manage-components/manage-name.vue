@@ -5,7 +5,7 @@
     <view class="name-container" v-else>
       <span>{{groupProfile.name}}</span>
       <image
-        src="../../../assets/icon/edit.svg"
+        src="../../../../assets/icon/edit.svg"
         mode="scaleToFill"
         @click="isEdit = !isEdit"
         class="edit-image"

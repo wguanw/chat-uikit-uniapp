@@ -14,7 +14,7 @@
       <view class="tui-person-to-invite" :class="{ isExist: item.isExist }" v-for="(item, index) in chooseUserList"
         :key="index" @click="handleChoose(item)">
         <view class="tui-person-choose-container">
-          <image class="tui-normal-choose" v-if="item.isChoose" src="../../assets/icon/selected.svg"></image>
+          <image class="tui-normal-choose" v-if="item.isChoose" src="../../../assets/icon/selected.svg"></image>
           <view class="tui-normal-unchoose" :class="{ isExist: item.isExist && type === 'add' }" v-else></view>
         </view>
         <view class="tui-person-profile">

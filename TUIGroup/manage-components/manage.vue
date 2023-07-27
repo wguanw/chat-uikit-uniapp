@@ -24,7 +24,7 @@
             >
             <image
               class="image-right"
-              src="../../../assets/icon/right-arrow.svg"
+              src="../../../../assets/icon/right-arrow.svg"
             ></image>
           </view>
         </view>
@@ -68,7 +68,7 @@
           <view>群管理</view>
           <image
             class="image-right"
-            src="../../../assets/icon/right-arrow.svg"
+            src="../../../../assets/icon/right-arrow.svg"
           ></image>
         </view>
         <view class="item-li">
