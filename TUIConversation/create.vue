@@ -58,7 +58,7 @@
 
 <script>
 import { defineComponent, watchEffect, reactive, toRefs } from "vue";
-import store from "../../TUICore/store";
+import store from "../../../TUICore/store";
 import { onLoad } from "@dcloudio/uni-app";
 
 export default defineComponent({

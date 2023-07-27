@@ -13,9 +13,9 @@
       <image
         class="item-icon"
         v-if="item.imgType === 'SINGLE'"
-        src="../../assets/icon/singlePerson.svg"
+        src="../../../assets/icon/singlePerson.svg"
       />
-      <image class="item-icon" v-else src="../../assets/icon/multiPerson.svg" />
+      <image class="item-icon" v-else src="../../../assets/icon/multiPerson.svg" />
       <view>{{ item.content }}</view>
     </view>
   </Dialog>
@@ -34,8 +34,8 @@ import { defineComponent, reactive, toRefs, computed, onMounted } from "vue";
 import { onNavigationBarButtonTap, onShow, onUnload } from "@dcloudio/uni-app";
 import TUIConversationList from "./conversation-list";
 import Dialog from "./components/dialog.vue";
-import store from "../../TUICore/store";
-import { TUIConversationServer, TUIProfileServer } from "../../TUICore/server";
+import store from "../../../TUICore/store";
+import { TUIConversationServer, TUIProfileServer } from "../../../TUICore/server";
 
 const TUIConversation = defineComponent({
   name: "TUIConversation",

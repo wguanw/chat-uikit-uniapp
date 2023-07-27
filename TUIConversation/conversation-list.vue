@@ -56,7 +56,7 @@
             <image
               class="mute-icon"
               v-if="item.messageRemindType === 'AcceptNotNotify'"
-              src="../../assets/icon/mute.svg"
+              src="../../../assets/icon/mute.svg"
             ></image>
           </view>
         </main>
@@ -103,7 +103,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watchEffect } from "vue";
-import { caculateTimeago } from "../../utils/date";
+import { caculateTimeago } from "../../../utils/date";
 const TUIConversationList = defineComponent({
   props: {
     conversationList: {

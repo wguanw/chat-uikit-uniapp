@@ -146,7 +146,7 @@ import MessageRevoked from "./components/message-elements/message-revoked.vue";
 import MessageSystem from "./components/message-elements/message-system.vue";
 // 底部消息发送组件
 import TUIChatInput from "./components/message-input";
-import store from "../../TUICore/store";
+import store from "./../../../TUICore/store";
 import {
  handleAvatar,
  handleTextMessageShowContext,

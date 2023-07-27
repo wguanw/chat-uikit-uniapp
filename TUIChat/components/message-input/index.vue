@@ -116,7 +116,7 @@ import {
 } from "vue";
 import Face from "./message/face.vue";
 import AudioMessage from "./message/audio.vue";
-import store from "../../../../TUICore/store";
+import store from "../../../../../TUICore/store";
 
 const TUIChatInput = defineComponent({
   components: {

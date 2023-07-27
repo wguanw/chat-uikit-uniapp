@@ -5,7 +5,7 @@
 import TUIGroupManage from "./manage-components/manage.vue";
 import { defineComponent, reactive, toRefs, computed } from 'vue';
 import { onUnload } from "@dcloudio/uni-app";
-import store from '../../TUICore/store';
+import store from "../../../TUICore/store";
 import {  TUIGroupServer } from '../../TUICore/server'
 
 

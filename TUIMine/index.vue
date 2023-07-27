@@ -39,7 +39,7 @@ import {
   onReady,
   onNavigationBarButtonTap
 } from '@dcloudio/uni-app'
-import store from '../../TUICore/store';
+import store from "../../../TUICore/store";
 
 const TUIMine = defineComponent({
   setup(props) {
