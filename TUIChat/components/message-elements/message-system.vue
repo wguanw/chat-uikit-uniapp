@@ -16,8 +16,8 @@
 
 <script lang="ts">
 import { defineComponent, watchEffect, reactive, toRefs } from 'vue';
-import { translateGroupSystemNotice } from "../../../../utils/untis";
-import { caculateTimeago } from '../../../../utils/date';
+import { translateGroupSystemNotice } from "../../../../../utils/untis";
+import { caculateTimeago } from '../../../../../utils/date';
 const MessageSystem = defineComponent({
   props: {
     data: {

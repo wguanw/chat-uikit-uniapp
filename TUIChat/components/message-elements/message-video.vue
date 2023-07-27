@@ -2,7 +2,7 @@
  <div class="message-video">
     <div class="message-video-box" :class="[!video.progress && 'message-video-cover']" @tap="toggleShow">
      <image :src="video.snapshotUrl"  class="message-video-box" :class="['content-' + message.flow]"></image>
-		 <image src="../../../../assets/icon/play_normal@2x.png"  class="video-play"></image>
+		 <image src="../../../../../assets/icon/play_normal@2x.png"  class="video-play"></image>
     </div>
 	</div>
 </template>

@@ -1,8 +1,8 @@
 <template>
   <view class="message-audio" :class="['content content-' + message.flow]"  @click="handlePlay">
-    <image v-if="message.flow==='in'" class="audio-icon audio-icon-in" src="../../../../assets/icon/audio-play.svg"></image>
+    <image v-if="message.flow==='in'" class="audio-icon audio-icon-in" src="../../../../../assets/icon/audio-play.svg"></image>
 		<view>{{data.second}}s</view>
-		<image v-if="message.flow==='out'" class="audio-icon " src="../../../../assets/icon/audio-play.svg"></image>
+		<image v-if="message.flow==='out'" class="audio-icon " src="../../../../../assets/icon/audio-play.svg"></image>
 <!-- 		<view class="play-icon" v-if="message.flow==='in' && !isPlay" ></view>
  -->  
  </view>

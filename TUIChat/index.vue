@@ -159,11 +159,11 @@ import {
  handleMergerMessageShowContext,
  handleTipMessageShowContext,
  handleCustomMessageShowContext,
-} from "../../utils/untis";
+} from "../../../utils/untis";
 
-import { caculateTimeago } from "../../utils/date";
+import { caculateTimeago } from "../../../utils/date";
 import Vuex from "vuex";
-import { TUIChatServer } from "../../TUICore/server";
+import { TUIChatServer } from "../../../TUICore/server";
 
 export default defineComponent({
  name: "TUIChat",

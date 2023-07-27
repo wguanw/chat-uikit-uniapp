@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, watchEffect, toRefs, computed, ref } from 'vue';
-import { emojiUrl, emojiMap, emojiName, faceUrl, bigEmojiList } from "../../../../../utils/emojiMap";
+import { emojiUrl, emojiMap, emojiName, faceUrl, bigEmojiList } from "../../../../../../utils/emojiMap";
 
 // import TUIMessage from '../../../../components/message';
 // import { onClickOutside } from '@vueuse/core';

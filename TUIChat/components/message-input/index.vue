@@ -5,14 +5,14 @@
       <image
         class="TUI-icon"
         @tap="handleEmoji"
-        src="../../../../assets/icon/emoji.svg"
+        src="../../../../../assets/icon/emoji.svg"
       ></image>
       <!-- #endif -->
       <!-- #ifndef H5 -->
       <image
         class="TUI-icon"
         @tap="handleSwitchAudio"
-        src="../../../../assets/icon/audio.svg"
+        src="../../../../../assets/icon/audio.svg"
       ></image>
       <!-- #endif -->
       <view v-if="!isAudio" class="TUI-message-input-main">
@@ -37,12 +37,12 @@
         <image
           class="TUI-icon"
           @tap="handleEmoji"
-          src="../../../../assets/icon/emoji.svg"
+          src="../../../../../assets/icon/emoji.svg"
         ></image>
         <view @tap="handleExtensions">
           <image
             class="TUI-icon"
-            src="../../../../assets/icon/more.svg"
+            src="../../../../../assets/icon/more.svg"
           ></image>
         </view>
       </view>
@@ -60,28 +60,28 @@
       <view class="TUI-Extension-slot" @tap="handleSendImageMessage('camera')">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/take-photo.svg"
+          src="../../../../../assets/icon/take-photo.svg"
         ></image>
         <view class="TUI-Extension-slot-name">拍照</view>
       </view>
       <view class="TUI-Extension-slot" @tap="handleSendImageMessage('album')">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/send-img.svg"
+          src="../../../../../assets/icon/send-img.svg"
         ></image>
         <view class="TUI-Extension-slot-name">图片</view>
       </view>
       <view class="TUI-Extension-slot" @tap="handleSendVideoMessage('album')">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/take-video.svg"
+          src="../../../../../assets/icon/take-video.svg"
         ></image>
         <view class="TUI-Extension-slot-name">视频</view>
       </view>
       <view class="TUI-Extension-slot" @tap="handleSendVideoMessage('camera')">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/take-photo.svg"
+          src="../../../../../assets/icon/take-photo.svg"
         ></image>
         <view class="TUI-Extension-slot-name">录像</view>
       </view>
@@ -89,14 +89,14 @@
       <view class="TUI-Extension-slot" @tap="handleCalling(1)">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/audio-calling.svg"
+          src="../../../../../assets/icon/audio-calling.svg"
         ></image>
         <view class="TUI-Extension-slot-name">语音通话</view>
       </view>
       <view class="TUI-Extension-slot" @tap="handleCalling(2)">
         <image
           class="TUI-Extension-icon"
-          src="../../../../assets/icon/take-video.svg"
+          src="../../../../../assets/icon/take-video.svg"
         ></image>
         <view class="TUI-Extension-slot-name">视频通话</view>
       </view>

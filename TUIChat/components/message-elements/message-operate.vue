@@ -1,11 +1,11 @@
 <template>
  <view class="dialog-container">
  	<view  class="item-box"  v-if="message.flow === 'out' && message.status==='success'" @click="handleMseeage('revoke')">
-		<image class="item-icon" src="../../../../assets/icon/revoked.svg"></image>
+		<image class="item-icon" src="../../../../../assets/icon/revoked.svg"></image>
 		<view>撤回</view>
  	</view>
  	<view class="item-box" v-if="message.status==='success'" @click="handleMseeage('delete')">
-		<image class="item-icon"  src="../../../../assets/icon/delete.svg"/>
+		<image class="item-icon"  src="../../../../../assets/icon/delete.svg"/>
 		<view>删除</view>
 	</view>
 <!-- 	<view class="item-box" v-if="message.status==='success'" @click="handleMseeage('forward')">
@@ -13,7 +13,7 @@
 		<view>转发</view>
 	</view> -->
  	<view class="item-box" v-if="message.flow === 'out' && message.status==='fail'" @click="handleMseeage('resend')">
-		<image class="item-icon"  src="../../../../assets/icon/forword.svg"/>
+		<image class="item-icon"  src="../../../../../assets/icon/forword.svg"/>
 		<view>重发</view>
  	</view>
 	<!-- <view v-if="message.type === types.MSG_FILE || item.type === types.MSG_VIDEO || item.type === types.MSG_IMAGE"
