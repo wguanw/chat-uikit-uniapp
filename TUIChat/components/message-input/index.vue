@@ -51,6 +51,8 @@
       <Face
         :show="displayFlag === 'emoji'"
         @send="handleSend"
+        @delEmojiAll="delEmojiAll"
+        @delEmoji="delEmoji"
         @handleSendEmoji="handleSendTextMessage"
       ></Face>
     </view>
@@ -177,7 +179,12 @@ const TUIChatInput = defineComponent({
       }
       data.inputText = " ";
     };
-
+    const delEmojiAll = () => {
+      data.inputText = '';
+    };
+    const delEmoji = () => {
+      data.inputText = data.inputText.slice(0, data.inputText.length - 1)
+    };
     // 处理需要合并的数据
     const handleSend = (emo: any) => {
       data.inputText += emo.name;
@@ -282,6 +289,8 @@ const TUIChatInput = defineComponent({
       handleSendTextMessage,
       handleSendVideoMessage,
       handleEmoji,
+      delEmojiAll,
+      delEmoji,
       handleSend,
       handleSwitchAudio,
       handleCalling,

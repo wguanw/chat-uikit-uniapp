@@ -1,26 +1,32 @@
 <template>
   <view class="face">
-      <view class="icon icon-face" @click="toggleShow"></view>
-      <view class="face-main"  v-show="show" ref="dialog">
-				<view class="face-main-box"  v-for="(item, index) in list" :key="index">
-					<view class="face-list"  v-if="currentIndex === index">
-					  <view  class="face-list-item" v-for="(childrenItem, childrenIndex) in item" :key="childrenIndex" @click="select(childrenItem, childrenIndex)">
-					    <image class="emo-image"   v-if="index === 0" :src="emojiUrl + emojiMap[childrenItem]"></image>
-					    <image class="face-img" v-else :src="faceUrl + childrenItem + '@2x.png'"></image>
-					  </view>
-					</view>
-				</view>
-       
-      <view class="face-tab">
+    <view class="icon icon-face" @click="toggleShow"></view>
+    <view class="face-main"  v-show="show" ref="dialog">
+        <view class="face-main-wrap">
+          <view class="face-main-box"  v-for="(item, index) in list" :key="index">
+            <view class="face-list"  v-if="currentIndex === index">
+              <view  class="face-list-item" v-for="(childrenItem, childrenIndex) in item" :key="childrenIndex" @click="select(childrenItem, childrenIndex)">
+                <image class="emo-image"   v-if="index === 0" :src="emojiUrl + emojiMap[childrenItem]"></image>
+                <image class="face-img" v-else :src="faceUrl + childrenItem + '@2x.png'"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="face-tab">
          <view  class="face-tab-item" @click="selectFace(0)">
            <view class="icon icon-face"></view>
          </view>
          <view  class="face-tab-item" v-for="(item, index) in bigEmojiList" :key="index" @click="selectFace(index+1)">
            <image class="face-icon"  :src="faceUrl + item.icon + '@2x.png'"></image>
          </view>
-      					<view class="send-btn" @click="handleSendEmoji">发送</view>
+          <view class="send-box">
+            <view @tap="delEmoji" @longpress="delEmojiAll" class="img-content">
+              <image class="del-image" mode="aspectFit" src="https://file.xiaolanhu.cn/xlh2023/4e81e847b9204b729f5878512b3f252e.png"></image>
+            </view>
+            <view @tap="handleSendEmoji" class="send-btn">发送</view>
+          </view>
        </view>
-      </view>
+    </view>
   </view>
 </template>
 
@@ -111,6 +117,12 @@ const Face = defineComponent({
     const handleSendEmoji = () => {
 			return ctx.emit('handleSendEmoji')
 		};
+    const delEmoji = () => {
+			return ctx.emit('delEmoji')
+		};
+    const delEmojiAll = () => {
+			return ctx.emit('delEmojiAll')
+		};
     return {
       ...toRefs(data),
       toggleShow,
@@ -119,6 +131,8 @@ const Face = defineComponent({
       list,
       dialog,
 			handleSendEmoji,
+      delEmoji,
+      delEmojiAll,
     };
   },
 });
@@ -142,34 +156,38 @@ export default Face;
      display: flex;
     flex-direction: column;
   }
-	&-main-box {
-		width: 100%;
-		height: 80%;
-		box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-		display: flex;
-		flex-direction: column;
-	}
-  &-list {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: auto;
-		justify-content: center;
-    &-item {
-      padding: 5px;
-			.emo-image {
-				display: block;
-			  height: 30px;
-				width: 30px;
-			}
-    }
-    .face-img {
-			display: block;
-      width: 60px;
-			height: 60px;
+  &-main-wrap {
+    height: 80%;
+    .face-main-box {
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+      display: flex;
+      flex-direction: column;
+      .face-list {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-y: auto;
+        justify-content: center;
+        .face-list-item {
+          padding: 5px;
+          .emo-image {
+            display: block;
+            height: 30px;
+            width: 30px;
+          }
+        }
+        .face-img {
+          display: block;
+          width: 60px;
+          height: 60px;
+        }
+      }
     }
   }
   &-tab {
+    position: relative;
     display: flex;
     align-items: center;
     &-item {
@@ -183,18 +201,37 @@ export default Face;
         width: 30px;
       }
     }
-		.send-btn {
-			position: absolute;
-			background-color: #55C06A;
+    .send-box {
+      position: absolute;
 			color: #ffffff;
 			line-height: 30px;
 			font-size: 13px;
 			text-align: center;
-			width: 50px;
-			height: 30px;
-			right: 0;
-			bottom: 10px;
-		}
+			height: 100%;
+			right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .img-content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 10rpx 0;
+        .del-image {
+          width: 70rpx;
+          height: 70rpx;
+        }
+      }
+      .send-btn {
+        width: 180rpx;
+        height: 60rpx;
+        line-height: 60rpx;
+        text-align: center;
+        color: #fff;
+        background-color: #55C06A;
+        border-radius: 10rpx;
+      }
+    }
   }
 }
 </style>
