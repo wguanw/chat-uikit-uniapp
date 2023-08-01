@@ -1,11 +1,23 @@
 <template>
-  <view class="TUI-conversation">
-    <TUIConversationList
-      :currentID="currrentConversationID"
-      :conversationList="conversationList"
-      @handleGotoItem="handleCurrrentConversation"
-    />
-  </view>
+    <scroll-view
+      class="conversation-page"
+      v-if="conversationList.length>0"
+      scroll-y
+      scroll-anchoring
+      refresher-enabled
+      scroll-with-animation
+      :refresher-triggered="triggered"
+      :refresher-threshold="80"
+      refresher-background="#f9f9f9"
+      @refresherrefresh="refresh"
+    >
+      <TUIConversationList
+        :currentID="currrentConversationID"
+        :conversationList="conversationList"
+        @handleGotoItem="handleCurrrentConversation"
+      />
+    </scroll-view>
+    <empty-page modeType="message" v-else></empty-page>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, computed, onMounted } from "vue";
@@ -28,6 +40,7 @@ const TUIConversation = defineComponent({
     uni.$TUIKit.TUIProfileServer = new TUIProfileServer();
     // const { t } = uni.$TUIKit.config.i18n.useI18n();
     const data: any = reactive({
+      triggered: true,
       conversationList: computed(() => timStore.conversationList),
       currrentConversationID: "",
       open: false,
@@ -85,6 +98,20 @@ const TUIConversation = defineComponent({
     onShow(() => {
       store.commit("timStore/setConversationID", "");
     });
+    const refresh = () => {
+      data.triggered = true;
+			setTimeout(() => {
+        data.triggered = false
+			}, 600);
+      setTimeout(() => {
+			  // getConversationList();
+      }, 1200);
+		}
+    const getConversationList = () => {
+			uni.$TUIKit.getConversationList().then(imResponse => {
+        this.conversationList = imResponse.data.conversationList
+			});
+		}
     // 切换当前会话
     const handleCurrrentConversation = (value: any) => {
       data.currrentConversationID = value.conversationID;
@@ -136,6 +163,8 @@ const TUIConversation = defineComponent({
 
     return {
       ...toRefs(data),
+      refresh,
+      getConversationList,
       handleCurrrentConversation,
       handleContentClick,
       handleItemName,
@@ -147,7 +176,8 @@ export default TUIConversation;
 </script>
 
 <style lang="scss" scoped>
-.TUI-conversation {
+.conversation-page {
+  height: 100vh;
   .create-group {
     font-weight: 800px;
     padding: 10px;
